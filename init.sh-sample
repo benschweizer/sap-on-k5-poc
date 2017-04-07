@@ -1,0 +1,42 @@
+#!/bin/bash
+# Fujitsu K5 API request: variables
+# Ensure this file and get_token.sh are in the same dir and have execute permissions.
+# Requires commands: curl, jq (https://stedolan.github.io/jq/download/)
+
+# Account information.
+# Contract Number
+DOMAIN_NAME=XtcbGU3j
+# Domain ID (not needed for these examples)
+DOMAIN_ID=5434b01e66de4d2997bc55374e9f04c5
+# Project ID (long hexadecimal ID in K5 Console API Endpoint URIs shown at Compute > Access and Security > API Endpoints)
+TENANT_ID=34aff57110974e3c8ffb640c36742bda
+PROJECT_ID=$TENANT_ID
+# User name and password in Project
+USER_NAME=schweizerb
+USER_PW="fC6teWw9d3BfUjQh"
+# Endpoint shortcuts
+echo "EP initial setup."
+TOKEN=https://identity.uk-1.cloud.global.fujitsu.com
+IDENTITY=$TOKEN
+NETWORK=https://networking.uk-1.cloud.global.fujitsu.com
+COMPUTE=https://compute.uk-1.cloud.global.fujitsu.com/v2/$PROJECT_ID 
+CEILOMETER=https://telemetry.uk-1.cloud.global.fujitsu.com
+TELEMETRY=$CEILOMETER
+DB=https://database.uk-1.cloud.global.fujitsu.com/v1.0/$PROJECT_ID
+BLOCKSTORAGE=https://blockstorage.uk-1.cloud.global.fujitsu.com/v1/$PROJECT_ID
+HOST_BLOCKSTORAGEV2=$BLOCKSTORAGE
+OBJECTSTORAGE=https://objectstorage.uk-1.cloud.global.fujitsu.com/v1/AUTH_$PROJECT_ID
+ORCHESTRATION=https://orchestration.uk-1.cloud.global.fujitsu.com/v1/$PROJECT_ID
+ELB=https://loadbalancing.uk-1.cloud.global.fujitsu.com
+AUTOSCALE=https://autoscale.uk-1.cloud.global.fujitsu.com/autoscale_schedulers
+IMAGE=https://image.uk-1.cloud.global.fujitsu.com
+MAILSERVICE=https://mail.uk-1.cloud.global.fujitsu.com
+NETWORK_EX=https://networking-ex.uk-1.cloud.global.fujitsu.com
+DNS=https://dns.cloud.global.fujitsu.com
+
+# Initial setup
+NAME_FORMAT="TES_$(date "+%m%d")_$(who am I | cut -d " " -f1)_" # Other
+alias curl='curl --tlsv1.2'
+SCRIPT_PATH=`pwd`
+RES_DIR=response
+RES_PATH=$SCRIPT_PATH/$RES_DIR
